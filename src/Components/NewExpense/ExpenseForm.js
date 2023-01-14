@@ -8,7 +8,7 @@ function ExpenseForm({ expenses, setExpenses }) {
     date: "",
   };
   const [enteredValues, setEnteredValues] = useState(initialObject);
-  console.log("enteredValues", enteredValues);
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault();

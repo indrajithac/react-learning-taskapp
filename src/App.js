@@ -24,12 +24,12 @@ const DUMMY_EXPENSES = [
 ];
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-  console.log("expense", expenses);
+
   return (
     <div className="App">
       <ExpenseForm setExpenses={setExpenses} expenses={expenses} />
       {expenses.map((expense) => {
-        return <ExpenseItem expense={expense} key={expense?.id}/>;
+        return <ExpenseItem expense={expense} key={expense?.id} />;
       })}
     </div>
   );
