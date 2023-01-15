@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ExpenseFilter from "./Components/ExpenseFilter/ExpenseFilter";
 import ExpenseItem from "./Components/ExpenseItem/ExpenseItem";
 import ExpenseForm from "./Components/NewExpense/ExpenseForm";
 const DUMMY_EXPENSES = [
@@ -24,10 +25,12 @@ const DUMMY_EXPENSES = [
 ];
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-
+  const [filteredExpense, setFilteredExpense] = useState([]);
+  const handleExpenseFilter = () => {};
   return (
     <div className="App">
       <ExpenseForm setExpenses={setExpenses} expenses={expenses} />
+      <ExpenseFilter handleExpenseFilter={handleExpenseFilter} />
       {expenses.map((expense) => {
         return <ExpenseItem expense={expense} key={expense?.id} />;
       })}
