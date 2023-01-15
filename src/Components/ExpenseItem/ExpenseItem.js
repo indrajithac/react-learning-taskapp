@@ -2,9 +2,10 @@ import React from "react";
 import "./ExpenseItem.css";
 
 function ExpenseItem({ expense }) {
-  const month = expense.date.toLocaleString("en-US", { month: "long" });
-  const day = expense.date.toLocaleString("en-US", { day: "2-digit" });
-  const year = expense.date.getFullYear();
+  const month = expense?.date?.toLocaleString("en-US", { month: "long" });
+  const day = expense?.date?.toLocaleString("en-US", { day: "2-digit" });
+  const year = expense?.date?.getFullYear();
+
   return (
     <div className="expense-item">
       <div className="expense-date">

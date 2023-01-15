@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-function ExpenseForm() {
+function ExpenseForm({ expenses, setExpenses }) {
   let initialObject = {
     title: "",
     amount: "",
     date: "",
   };
   const [enteredValues, setEnteredValues] = useState(initialObject);
-  console.log("enteredValues", enteredValues);
-  
+ 
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setEnteredValues(initialObject);
+    setExpenses((prevExpenses) => {
+      return [enteredValues, ...prevExpenses];
+    });
   };
 
   return (
@@ -47,10 +50,10 @@ function ExpenseForm() {
             <label>Date</label>
             <input
               type="date"
-              value={enteredValues.date}
+              // value={enteredValues.date}
               onChange={(e) =>
                 setEnteredValues((prevState) => {
-                  return { ...prevState, date: e.target.value };
+                  return { ...prevState, date: new Date(e.target.value) };
                 })
               }
             />
